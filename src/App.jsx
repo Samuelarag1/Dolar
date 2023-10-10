@@ -19,7 +19,15 @@ function App() {
     dataRecibida();
   }, []);
 
-  return <div>{datos && <Card datos={datos} />}</div>;
+  return (
+    <div>
+      {datos && <Card datos={datos} />}
+
+      <footer>
+        <p>Todos los derechos reservados | Samuel Aragon 2023</p>
+      </footer>
+    </div>
+  );
 }
 
 export default App;

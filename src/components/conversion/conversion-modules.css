@@ -1,0 +1,25 @@
+button {
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  border: 2px solid black;
+  margin: 1rem;
+}
+
+button:hover {
+  box-shadow: 1px 10px 10px 1px rgba(0, 28, 126, 0.779);
+  cursor: pointer;
+  background-color: blue;
+  transition: 0.3s ease, color 0.3s ease;
+  color: white;
+}
+input {
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  text-align: center;
+}
+input:focus {
+  outline: 2px solid blue;
+}
