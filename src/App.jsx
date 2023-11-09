@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Card } from "./components/Card";
+import { Card } from "./components/card/Card.jsx";
 import axios from "axios";
-import "./App.css";
+import { Footer } from "./components/footer/Footer.jsx";
+import "./index.css";
 
 function App() {
   const [datos, setDatos] = useState(null);
@@ -20,12 +21,10 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="contenedor">
       {datos && <Card datos={datos} />}
 
-      <footer>
-        <p>Todos los derechos reservados | Samuel Aragon 2023</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

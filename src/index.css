@@ -5,36 +5,65 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  min-height: 100vh;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
-
 body {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #16191f;
-  font-family: var(--fuentePrincipal);
   margin: 0;
-}
-h1 {
-  font-size: 3rem;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 5rem;
-  }
-}
-h3 {
-  font-size: 3rem;
-  color: blue;
-}
-h4 {
-  font-size: 2rem;
+  padding: 0;
+  font-family: var(--fuentePrincipal);
+  background: linear-gradient(90deg, rgb(0, 0, 0) 10%, rgb(17, 19, 97) 100%);
 }
 
-p {
+h1{
+  font-size: 3rem;
+  margin-top: 1rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 5px 20px rgb(0, 0, 0);
+  padding: 0;
+  border-radius: 1rem;
+}
+h3{
+  font-size: 2.3rem;
+  margin-top: 0;
+  color: white;
+text-shadow: 0px 5px 20px rgb(0, 0, 0);
+}
+h4{
   font-size: 1.5rem;
+  color: rgb(255, 254, 254);
+  text-shadow: 0px 3px 5px rgb(102, 202, 147);
+}
+
+p{
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(4, 65, 19);
+  padding: .5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0px 10px 20px 3px rgb(0, 0, 0);
+
+}
+
+
+.contenedor{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuentePrincipal);
+  color: rgba(255, 255, 255, 0.87);
+}
+
+span{
+  font-family: var(--fuentePrincipal);
+  font-size: 2rem;
+  text-shadow: 0px 3px 25px rgb(0, 0, 0);
 }

@@ -17,9 +17,9 @@ export const Fecha = ({ props }) => {
 
   return (
     <div>
-      <p>
+      <span>
         Actualizado a la hora y fecha: {fechaFormated + " | " + horaFormated}
-      </p>
+      </span>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Fecha } from "./Fecha";
-import { Conversion } from "./conversion/Conversion";
+import { Fecha } from "../fecha/Fecha";
+import { Conversion } from "../conversion/Conversion";
 
 export const Card = ({ datos }) => {
   const fecha = new Date().toLocaleDateString("es-mx", {
@@ -27,13 +27,16 @@ export const Card = ({ datos }) => {
         <h3>Dolar Blue</h3>
         <h4>Compra: {precioDolar[0].value_buy}$ ARS</h4>
         <h4>Venta: {precioDolar[0].value_sell}$ ARS</h4>
-        <Conversion typeOfInput={"input1"} precioDolar={precioDolar} />
         <hr />
 
         <h3>Euro Blue</h3>
         <h4>Compra: {precioEuro[1].value_buy}$ ARS</h4>
         <h4>Venta: {precioEuro[1].value_sell}$ ARS</h4>
-        <Conversion typeOfInput={"input2"} precioEuro={precioEuro} />
+        <Conversion
+          typeOfInput={"input2"}
+          precioEuro={precioEuro}
+          precioDolar={precioDolar}
+        />
       </div>
       <hr />
       <Fecha props={datos.last_update} />
