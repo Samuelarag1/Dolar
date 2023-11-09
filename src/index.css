@@ -69,3 +69,15 @@ span{
   font-size: 2rem;
   text-shadow: 0px 3px 25px rgb(0, 0, 0);
 }
+
+
+
+.fechita{
+
+  @media (max-width:768px) {
+
+    margin-bottom: 10rem;
+
+  }
+
+}
