@@ -1,13 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import styles from "./conversion-module.css";
 
 export const Conversion = ({ precioDolar, precioEuro }) => {
-  //! Declaracion de estados
-
   const [input, setInput] = useState("");
   const [input2, setInput2] = useState("");
-  const [active, setActive] = useState(false);
   const [valores, setValores] = useState({
     valor1: "",
     valor2: "",
@@ -25,8 +21,6 @@ export const Conversion = ({ precioDolar, precioEuro }) => {
     eur: "",
     usd: "",
   });
-
-  //* Declaracion de funciones
 
   const asignarValor = async (input, name) => {
     if (name === "arsTo") {
@@ -68,70 +62,121 @@ export const Conversion = ({ precioDolar, precioEuro }) => {
       });
       asignarValor(input2, name);
     }
-    setActive(false);
-  };
-
-  const handleOnSubmit = (e) => {
-    if (conver.arsTOeur.buy !== "" || conver.eur !== "" || conver.usd !== "") {
-      setInput("");
-      setInput2("");
-      setActive(true);
-    }
   };
 
   return (
-    <div className="contenido">
-      <span>Monto a convertir</span>
-      <input
-        name="arsTo"
-        type="number"
-        onChange={handleOnChange}
-        placeholder="Monto en ARS $"
-        value={input}
-      />
-
-      <input
-        name="usd/eur"
-        type="number"
-        placeholder="Monto en USD/EUR $"
-        value={input2}
-        onChange={handleOnChange}
-      />
-      <button onClick={handleOnSubmit}>Convertir</button>
-
-      <div className={active === true ? "active" : "inactive"}>
-        <h1>Pesos Argentinos a Euro/Dolar Blue</h1>
-        <p>{`${valores.valor1.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} ARS$  son: ${conver?.arsTOusd.sell.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} USD$`}</p>
-        <p>{`${valores.valor1.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} ARS$  son: ${conver?.arsTOeur.sell.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} EUR€`}</p>
-
-        <h1>Conversion Euro/Dolar a Pesos Argentinos</h1>
-        <p>{`${valores.valor2.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} USD$ son: ${conver?.usd.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} ARS$`}</p>
-        <p>{`${valores.valor2.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} EUR€ son: ${conver?.eur.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} ARS$`}</p>
+    <div className="h-fit bg-[#0B3142] w-fit rounded-lg border-black border-2 p-4 m-2 shadow-lg shadow-black">
+      <h3 className="text-center text-2xl font-bold text-white">Conversion</h3>
+      <div className="flex flex-col md:flex-row md:gap-5 items-center align-middle p-2 justify-center">
+        <div className="w-48">
+          <p className="ml-2 font-semibold text-white">
+            Monto a convertir en ARS$
+          </p>
+          <input
+            name="arsTo"
+            type="number"
+            onChange={handleOnChange}
+            placeholder="Monto en ARS $"
+            value={input}
+            className="p-2 rounded-lg"
+          />
+        </div>
+        <div className="w-48">
+          <p className="ml-2 font-semibold text-white">
+            Monto a convertir en USD/EUR
+          </p>
+          <input
+            name="usd/eur"
+            type="number"
+            placeholder="Monto en USD/EUR $"
+            value={input2}
+            onChange={handleOnChange}
+            className="p-2 rounded-lg"
+          />
+        </div>
       </div>
+      <br />
+      {valores.valor1 ? (
+        <div className="text-white">
+          <h1 className="text-center text-xl font-bold">
+            Pesos Argentinos a Euro/Dolar Blue
+          </h1>
+          <br />
+          <div className="flex flex-col justify-around items-center">
+            <div className="text-xl">
+              <p>
+                <strong>ARS$</strong>
+                {`${valores.valor1.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+
+                  = ${conver?.arsTOusd.sell.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`}{" "}
+                <strong> USD$</strong>
+              </p>
+            </div>
+            <div className="text-xl">
+              <p>
+                <strong>ARS$</strong>
+                {`${valores.valor1.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })} ARS$ = ${conver?.arsTOeur.sell.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })} `}
+                <strong>EUR€</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      {valores.valor2 ? (
+        <>
+          <hr />
+          <div className="text-white">
+            <h1 className="text-center text-xl font-bold">
+              Conversion Euro y Dolar a Pesos Argentinos
+            </h1>
+            <br />
+            <div className="flex flex-col justify-around items-center">
+              <div className="text-xl">
+                <p>
+                  <strong>USD$ </strong>
+                  {`${valores.valor2.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })} = ${conver?.usd.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`}
+                  <strong> ARS$</strong>
+                </p>
+              </div>
+              <div className="text-xl">
+                <p>
+                  <strong>EUR€ </strong>
+                  {`${valores.valor2.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}  = ${conver?.eur.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`}
+                  <strong> ARS$</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        ""
+      )}{" "}
     </div>
   );
 };

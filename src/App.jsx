@@ -21,11 +21,12 @@ function App() {
   }, []);
 
   return (
-    <div className="contenedor">
-      {datos && <Card datos={datos} />}
-
+    <>
+      <div className="bg-[#BDBEA9] h-[100%] w-screen pb-20 overflow-x-hidden">
+        {datos && <Card datos={datos} />}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -16,8 +16,8 @@ export const Fecha = ({ props }) => {
     props.split("-")[0];
 
   return (
-    <div className="fechita">
-      <span>
+    <div className="w-[100%] text-center mt-5">
+      <span className="text-center text-xl text-white">
         Actualizado a la hora y fecha: {fechaFormated + " | " + horaFormated}
       </span>
     </div>
